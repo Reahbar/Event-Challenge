@@ -12,6 +12,8 @@ After cloning the github, you will want to do the following to get the code runn
    
 Once the contract is attached, you can go ahead and call the smart contract functions!
 
+Note: When you use the await bank.getBalance command, you will see the value in the events section where the npx hardhat run --network localhost scripts/deploy.jscommand is runing in the terminal.
+
 Here is an example you can run using our hardhat provided accounts:
 
   1. `await bank.deposit("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", 1)`
@@ -21,3 +23,4 @@ Here is an example you can run using our hardhat provided accounts:
   5. `await bank.getBalance("0x70997970C51812dc3A010C7d01b50e0d17dc79C8")`
   6. `await bank.withdraw("0x70997970C51812dc3A010C7d01b50e0d17dc79C8", 1)`
   7. `await bank.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")`
+  8. `await bank.getBalance("0x70997970C51812dc3A010C7d01b50e0d17dc79C8")`
