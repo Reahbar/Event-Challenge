@@ -6,7 +6,7 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-async function main() { 
+async function main() {
   const EventTest = await hre.ethers.getContractFactory("Bank");
   const eventTest = await EventTest.deploy();
 
@@ -24,6 +24,10 @@ async function main() {
     console.log(`New transfer: ${from} ${to} ${amount} WEI`);
   })
 
+  eventTest.on("GetBalance", (owner, amount) => {
+    console.log(`New getBalance: ${owner} ${amount} WEI`);
+  })
+
   console.log(
     `Contract deployed to ${eventTest.address}`
   );
@@ -31,7 +35,9 @@ async function main() {
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
+
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
